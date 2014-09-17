@@ -1,0 +1,24 @@
+tmp
+bin
+build
+
+.DS_Store
+build.log
+build
+npm-debug.log
+tmp
+
+# svn & cvs
+.svn
+CVS
+
+lost+found
+*.swp
+
+Resources
+*.class
+
+.settings
+.project
+.classpath
+.fastdev.lock

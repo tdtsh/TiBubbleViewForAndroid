@@ -1,0 +1,17 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+description: TiBubbleAndroid
+author: Tadatoshi Hanazaki
+license: The MIT License (MIT)
+copyright: Copyright (c) 2014 Tadatoshi Hanazaki
+
+# these should not be edited
+name: TiBubbleAndroid
+moduleid: com.tdtsh.tibubbleandroid
+guid: 7e164a78-bb67-43f5-97ea-9cf51c4a7f88
+platform: android
+minsdk: 3.3.0.GA
