@@ -15,9 +15,11 @@ that TiBubbleView <https://github.com/k0sukey/TiBubbleView> ported to Android.
 Register your module with your application by editing `tiapp.xml` and adding your module.
 Example:
 
+```
 <modules>
 	<module platform="android">com.tdtsh.tibubbleandroid</module>
 </modules>
+```
 
 When you run your project, the compiler will combine your module along with its dependencies
 and assets into the application.
