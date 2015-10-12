@@ -2,7 +2,7 @@
 # this is your module manifest and used by Titanium
 # during compilation, packaging, distribution, etc.
 #
-version: 1.0.0
+version: 1.0.1
 apiversion: 2
 description: TiBubbleAndroid
 author: Tadatoshi Hanazaki
@@ -14,4 +14,5 @@ name: TiBubbleAndroid
 moduleid: com.tdtsh.tibubbleandroid
 guid: 7e164a78-bb67-43f5-97ea-9cf51c4a7f88
 platform: android
-minsdk: 3.3.0.GA
+minsdk: 3.5.1.GA
+architectures: armeabi armeabi-v7a x86

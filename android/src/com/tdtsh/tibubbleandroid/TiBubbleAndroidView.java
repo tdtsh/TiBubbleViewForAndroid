@@ -29,60 +29,50 @@ import android.view.ViewParent;
 import android.app.Activity;
 import android.os.Build;
 
-public class TiBubbleAndroidView extends TiUIView
-{
+public class TiBubbleAndroidView extends TiUIView {
 	private KrollDict prop;
 	private NativeBubbleView nativeBubbleView = null;
 
-	public TiBubbleAndroidView(TiViewProxy proxy) 
-	{
+	public TiBubbleAndroidView(TiViewProxy proxy) {
 		super(proxy);
 
 		prop = proxy.getProperties();
 
 		LayoutArrangement arrangement = LayoutArrangement.DEFAULT;
 
-		if (proxy.hasProperty(TiC.PROPERTY_LAYOUT)) 
-		{
+		if (proxy.hasProperty(TiC.PROPERTY_LAYOUT)) {
 			String layoutProperty = TiConvert.toString(proxy.getProperty(TiC.PROPERTY_LAYOUT));
-			if (layoutProperty.equals(TiC.LAYOUT_HORIZONTAL)) 
-			{
+			if (layoutProperty.equals(TiC.LAYOUT_HORIZONTAL)) {
 				arrangement = LayoutArrangement.HORIZONTAL;
-			}
-			else if (layoutProperty.equals(TiC.LAYOUT_VERTICAL)) 
-			{
+			} else if (layoutProperty.equals(TiC.LAYOUT_VERTICAL)) {
 				arrangement = LayoutArrangement.VERTICAL;
 			}
 		}
 
 		TiCompositeLayout nativeView = new TiCompositeLayout(proxy.getActivity(), arrangement);
 		setNativeView(nativeView);
-		
-		if (nativeBubbleView == null ) 
-		{
+
+		if (nativeBubbleView == null) {
 			Activity currentActivity = proxy.getActivity();
-			if (currentActivity == null) 
-			{
+			if (currentActivity == null) {
 				currentActivity = TiApplication.getAppCurrentActivity();
 			}
 			nativeBubbleView = new NativeBubbleView(currentActivity);
 
 			LayoutParams params = new LayoutParams();
 			params.height = android.widget.FrameLayout.LayoutParams.MATCH_PARENT;
-			params.width  = android.widget.FrameLayout.LayoutParams.MATCH_PARENT;
+			params.width = android.widget.FrameLayout.LayoutParams.MATCH_PARENT;
 
 			ViewGroup savedParent = null;
 			int childIndex = -1;
 
 			TiUIView parentView = proxy.getParent().getOrCreateView();
-			View parentNativeView = (View) parentView.getNativeView(); 
+			View parentNativeView = (View) parentView.getNativeView();
 
-			if (parentNativeView != null) 
-			{
+			if (parentNativeView != null) {
 				ViewParent nativeParent = (ViewParent) parentNativeView;
 
-				if (nativeParent instanceof ViewGroup) 
-				{
+				if (nativeParent instanceof ViewGroup) {
 					savedParent = (ViewGroup) nativeParent;
 					childIndex = savedParent.indexOfChild(nativeView);
 					savedParent.removeView(nativeView);
@@ -91,44 +81,35 @@ public class TiBubbleAndroidView extends TiUIView
 
 			nativeBubbleView.addView(nativeView, params);
 
-			if (savedParent != null) 
-			{
+			if (savedParent != null) {
 				savedParent.addView(nativeBubbleView, childIndex, getLayoutParams());
 			}
 
-			if (prop.containsKey("bubbleRadius")) 
-			{
+			if (prop.containsKey("bubbleRadius")) {
 				float radius = 0;
 				TiDimension radiusDim = TiConvert.toTiDimension(prop.get("bubbleRadius"), TiDimension.TYPE_WIDTH);
-				if (radiusDim != null) 
-				{
+				if (radiusDim != null) {
 					radius = (float) radiusDim.getPixels(getNativeView());
 				}
 				nativeBubbleView.setBubbleRadius(radius);
 			}
 
-			if (prop.containsKey("bubbleColor")) 
-			{
+			if (prop.containsKey("bubbleColor")) {
 				nativeBubbleView.setBubbleColor(TiConvert.toColor(prop, "bubbleColor"));
-			} 
-			else 
-			{
+			} else {
 				Integer bgColor = TiConvert.toColor(prop, TiC.PROPERTY_BACKGROUND_COLOR);
-				if (bgColor != null) 
-				{
+				if (bgColor != null) {
 					nativeBubbleView.setBubbleColor(bgColor);
 				}
 			}
 
-			if (prop.containsKey("bubbleBeak")) 
-			{
+			if (prop.containsKey("bubbleBeak")) {
 				nativeBubbleView.setBubbleBeak(TiConvert.toInt(prop, "bubbleBeak"));
-			} 
+			}
 
-			if (prop.containsKey("bubbleBeakVertical")) 
-			{
+			if (prop.containsKey("bubbleBeakVertical")) {
 				nativeBubbleView.setBubbleBeakVertical(TiConvert.toInt(prop, "bubbleBeakVertical"));
-			} 
+			}
 
 			parentView.remove(this);
 			parentView.add(this);

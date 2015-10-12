@@ -19,17 +19,14 @@ import org.appcelerator.titanium.view.TiUIView;
 import android.app.Activity;
 
 // This proxy can be created by calling TiBubbleAndroid.createExample({message: "hello world"})
-@Kroll.proxy(creatableInModule=TiBubbleAndroidModule.class)
-public class ViewProxy extends TiViewProxy
-{
-	public ViewProxy()
-	{
+@Kroll.proxy(creatableInModule = TiBubbleAndroidModule.class)
+public class ViewProxy extends TiViewProxy {
+	public ViewProxy() {
 		super();
 	}
 
 	@Override
-	public TiUIView createView(Activity activity)
-	{
+	public TiUIView createView(Activity activity) {
 		return new TiBubbleAndroidView(this);
 	}
 

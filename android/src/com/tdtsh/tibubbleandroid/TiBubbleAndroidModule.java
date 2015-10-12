@@ -13,47 +13,40 @@ import org.appcelerator.kroll.annotations.Kroll;
 
 import org.appcelerator.titanium.TiApplication;
 
-
-@Kroll.module(name="TiBubbleAndroid", id="com.tdtsh.tibubbleandroid")
-public class TiBubbleAndroidModule extends KrollModule
-{
-	public static final int BUBBLE_BEAK_LEFT  = 0;
+@Kroll.module(name = "TiBubbleAndroid", id = "com.tdtsh.tibubbleandroid")
+public class TiBubbleAndroidModule extends KrollModule {
+	public static final int BUBBLE_BEAK_LEFT = 0;
 	public static final int BUBBLE_BEAK_RIGHT = 1;
 	public static final int BUBBLE_BEAK_LOWER = 0;
 	public static final int BUBBLE_BEAK_UPPER = 1;
 
-	public TiBubbleAndroidModule()
-	{
+	public TiBubbleAndroidModule() {
 		super();
 	}
 
 	@Kroll.onAppCreate
-	public static void onAppCreate(TiApplication app)
-	{
-		// put module init code that needs to run when the application is created
+	public static void onAppCreate(TiApplication app) {
+		// put module init code that needs to run when the application is
+		// created
 	}
 
 	@Kroll.getProperty
-	public int getBubbleBeakLeft()
-	{
+	public int getBubbleBeakLeft() {
 		return BUBBLE_BEAK_LEFT;
 	}
 
 	@Kroll.getProperty
-	public int getBubbleBeakRight()
-	{
+	public int getBubbleBeakRight() {
 		return BUBBLE_BEAK_RIGHT;
 	}
 
 	@Kroll.getProperty
-	public int getBubbleBeakLower()
-	{
+	public int getBubbleBeakLower() {
 		return BUBBLE_BEAK_LOWER;
 	}
 
 	@Kroll.getProperty
-	public int getBubbleBeakUpper()
-	{
+	public int getBubbleBeakUpper() {
 		return BUBBLE_BEAK_UPPER;
 	}
 
