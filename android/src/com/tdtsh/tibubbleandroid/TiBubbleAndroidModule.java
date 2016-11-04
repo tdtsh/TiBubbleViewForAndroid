@@ -17,6 +17,7 @@ import org.appcelerator.titanium.TiApplication;
 public class TiBubbleAndroidModule extends KrollModule {
 	public static final int BUBBLE_BEAK_LEFT = 0;
 	public static final int BUBBLE_BEAK_RIGHT = 1;
+	public static final int BUBBLE_BEAK_NONE = 2;
 	public static final int BUBBLE_BEAK_LOWER = 0;
 	public static final int BUBBLE_BEAK_UPPER = 1;
 
@@ -38,6 +39,11 @@ public class TiBubbleAndroidModule extends KrollModule {
 	@Kroll.getProperty
 	public int getBubbleBeakRight() {
 		return BUBBLE_BEAK_RIGHT;
+	}
+	
+	@Kroll.getProperty
+	public int getBubbleBeakNone() {
+		return BUBBLE_BEAK_NONE;
 	}
 
 	@Kroll.getProperty

@@ -8,6 +8,7 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Path.Direction;
 import android.widget.FrameLayout;
 
 import android.util.DisplayMetrics;
@@ -23,7 +24,7 @@ public class NativeBubbleView extends FrameLayout {
 
 	private int color = Color.GREEN;
 	private float radius;
-	private int bubbleBeak; // LEFT: 0, RIGHT: 1
+	private int bubbleBeak; // LEFT: 0, RIGHT: 1, NONE: 2
 	private int bubbleBeakVertical; // LOWER: 0, UPPER: 1
 
 	private Path path;
@@ -86,6 +87,7 @@ public class NativeBubbleView extends FrameLayout {
 		path.moveTo(left, top + radius);
 
 		if (bubbleBeak == 1) {
+			// right
 			if (bubbleBeakVertical == 1) {
 				//  upper right beak
 				path.arcTo(new RectF(left, top, left + (radius * 2), top + (radius * 2)), 180, 90);
@@ -110,7 +112,8 @@ public class NativeBubbleView extends FrameLayout {
 
 				path.arcTo(new RectF(left, bottom - (radius * 2), left + (radius * 2), bottom), 90, 90);
 			}
-		} else {
+		} else if (bubbleBeak == 0) {
+			// left
 			if (bubbleBeakVertical == 1) {
 				//  upper left beak
 				path.arcTo(new RectF(left, top, left + (radius * 2), top + (radius * 2)), 175, 5);
@@ -132,6 +135,9 @@ public class NativeBubbleView extends FrameLayout {
 				path.cubicTo(left + 2, bottom - (radius / 4), left, bottom - (radius / 4), left, bottom - radius);
 				path.arcTo(new RectF(left, bottom - (radius * 2), left + (radius * 2), bottom), 175, 5);
 			}
+		} else if (bubbleBeak == 2) {
+			// none
+			path.addRoundRect(new RectF(left, top, right, bottom), radius, radius, Direction.CCW);
 		}
 
 		path.close();

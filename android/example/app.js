@@ -85,7 +85,7 @@ for (var i = 0; i < messages.length; i++) {
 			bubbleBeak: TiBubble.bubbleBeakRight, // Caution! diffarent value from iOS version
 			bubbleBeakVertical: TiBubble.bubbleBeakLower // Caution! diffarent value from iOS version
 		});
-	} else {
+	} else if (i % 3) {
 		bubble = TiBubble.createView({
 			top: 0,
 			left: 74,
@@ -96,7 +96,17 @@ for (var i = 0; i < messages.length; i++) {
 			bubbleBeak: TiBubble.bubbleBeakLeft, // Caution! diffarent value from iOS version
 			bubbleBeakVertical: TiBubble.bubbleBeakUpper // Caution! diffarent value from iOS version
 		});
-	}
+	} else {
+        bubble = TiBubble.createView({
+            top: 0,
+            left: 74,
+            width: Ti.UI.SIZE,
+            height: Ti.UI.SIZE,
+            bubbleColor: '#fde500',
+            bubbleRadius: 20,
+            bubbleBeak: TiBubble.bubbleBeakNone
+        });
+    }
 	bubble.add(label);
 	view.add(bubble);
 
