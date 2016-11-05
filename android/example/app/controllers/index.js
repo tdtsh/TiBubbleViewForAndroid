@@ -1,10 +1,5 @@
 var TiBubble = require('com.tdtsh.tibubbleandroid');
 
-var win = Ti.UI.createWindow({
-	backgroundColor: '#fff'
-});
-win.open();
-
 var scroll = Ti.UI.createScrollView({
 	top: 0,
 	right: 0,
@@ -14,7 +9,7 @@ var scroll = Ti.UI.createScrollView({
 	height: Ti.UI.FILL,
 	layout: 'vertical'
 });
-win.add(scroll);
+$.index.add(scroll);
 
 var messages = [
 	'hello!',
@@ -45,7 +40,7 @@ for (var i = 0; i < messages.length; i++) {
 			bottom: 0,
 			width: 64,
 			height: 64,
-			image: 'right.png'
+			image: '/right.png'
 		});
 	} else {
 		image = Ti.UI.createImageView({
@@ -53,7 +48,7 @@ for (var i = 0; i < messages.length; i++) {
 			left: 0,
 			width: 64,
 			height: 64,
-			image: 'left.png'
+			image: '/left.png'
 		});
 	}
 	view.add(image);
@@ -112,3 +107,5 @@ for (var i = 0; i < messages.length; i++) {
 
 	scroll.add(view);
 }
+
+$.index.open();

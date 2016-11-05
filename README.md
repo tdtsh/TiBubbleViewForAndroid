@@ -1,6 +1,6 @@
 # TiBubbleView for Android
 
-This is a Titanium Mobile Mobile module (for Android) project 
+This is a Titanium Mobile Mobile module (for Android) project
 that TiBubbleView <https://github.com/k0sukey/TiBubbleView> ported to Android.
 
 
@@ -9,7 +9,7 @@ that TiBubbleView <https://github.com/k0sukey/TiBubbleView> ported to Android.
 
 ## Install
 
-[Compiled module download](android/dist/com.tdtsh.tibubbleandroid-android-1.0.0.zip)
+[Compiled module download](android/dist/com.tdtsh.tibubbleandroid-android-2.0.0.zip)
 
 
 Register your module with your application by editing `tiapp.xml` and adding your module.
@@ -63,7 +63,7 @@ bubble.add(label);
 
 * bubbleColor
 * bubbleRadius
-* bubbleBeak / TiBubble.bubbleBeakLeft or TiBubble.bubbleBeakRight
+* bubbleBeak / TiBubble.bubbleBeakLeft or TiBubble.bubbleBeakRight or TiBubble.bubbleBeakNone
 * bubbleBeakVertical / TiBubble.bubbleBeakLower or TiBubble.bubbleBeakUpper
 
 ## Credits
@@ -73,5 +73,5 @@ Original TiBubbleView <https://github.com/k0sukey/TiBubbleView> by Kosuke Isobe
 
 ## License
 
-The MIT License (MIT) Copyright (c) 2014 Tadatoshi Hanazaki
+The MIT License (MIT) Copyright (c) 2016 Tadatoshi Hanazaki
 
